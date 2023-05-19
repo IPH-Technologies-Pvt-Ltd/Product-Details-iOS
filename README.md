@@ -37,5 +37,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 This project was inspired by the Product Details Page in the Apple App Store.
 
-## Video
-![(3)](https://github.com/IPH-Technologies-Pvt-Ltd/Product-Details-iOS/assets/124572978/99bfc9f0-a324-4288-88c4-0f87536b5517)
+## Screenshot
+<img src="https://github.com/IPH-Technologies-Pvt-Ltd/Product-Details-iOS/assets/124572978/99bfc9f0-a324-4288-88c4-0f87536b5517" 
+     width="200" 
+     height="400"/>
