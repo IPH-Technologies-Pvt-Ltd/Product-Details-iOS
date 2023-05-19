@@ -1,6 +1,6 @@
-# Product Details Page in Swift
+# Product Previwer Page in Swift
 
-This is a basic Product Details Page implemented in Swift for iOS applications. This page displays the details of a product such as its name, description, price, and an image. 
+This is a basic Product Previwer Page implemented in Swift for iOS applications. This page displays the details of a product such as its name, description, price, and an image. 
 
 ## Features
 
