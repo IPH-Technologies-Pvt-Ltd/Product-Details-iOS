@@ -1,4 +1,4 @@
-# Product Details Page in Swift - ReadMe
+# Product Details Page in Swift
 
 This is a basic Product Details Page implemented in Swift for iOS applications. This page displays the details of a product such as its name, description, price, and an image. 
 
@@ -36,3 +36,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 This project was inspired by the Product Details Page in the Apple App Store.
+
+## Video
+![(3)](https://github.com/IPH-Technologies-Pvt-Ltd/Product-Details-iOS/assets/124572978/99bfc9f0-a324-4288-88c4-0f87536b5517)
