@@ -10,14 +10,17 @@ import UIKit
 
 class Animation{
     static let shared = Animation()
+    var identifier: Int?
     
-    func animateImageSize(x: CGFloat, y: CGFloat, image: UIImageView){
+    func animateImageSize(xFront: CGFloat, yFront: CGFloat, image: UIImageView, xBack: CGFloat, yBack: CGFloat){
         UIView.animate(withDuration: 1.0, animations: {() -> Void in
-            image.transform = CGAffineTransform(scaleX: x, y: y)
+            image.transform = CGAffineTransform(scaleX: xFront, y: yFront)
+        }, completion: {_ in
+            image.transform = CGAffineTransform(scaleX: xBack, y: yBack)
         })
     }
     
-    func circleAnim(_ view: UIView, duration: CFTimeInterval) {
+    func circleAnim(_ view: UIView, duration: CFTimeInterval, completion: @escaping() -> ()) {
         let maskDiameter = CGFloat(sqrtf(powf(Float(view.bounds.width), 2) + powf(Float(view.bounds.height), 2)))
         print(maskDiameter) //893
         let mask = CAShapeLayer()
@@ -43,14 +46,24 @@ class Animation{
 
         // Create a new path.
         let newPath = UIBezierPath(roundedRect: CGRect(x: maskDiameter / 2, y: maskDiameter / 2, width: 0, height: 0), cornerRadius: 0).cgPath
-
-        // Set start and end values.
-        animation.fromValue = newPath //mask.path
-        animation.toValue = mask.path //newPath
-
+        
+        //adding new code
+        if identifier == 1{
+            // Set start and end values.
+            animation.fromValue = newPath //mask.path
+            animation.toValue = mask.path //newPath
+        }
+        else{
+            animation.fromValue = mask.path
+            animation.toValue = newPath
+            
+        }
 
         // Start the animation.
         mask.add(animation, forKey: animationId)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        completion()
+        }
     }
     
     func changeBlue(imageView: UIImageView){
