@@ -43,8 +43,6 @@ class ViewController: UIViewController {
         setupUI()
         sizePickerView.dataSource = self
         sizePickerView.delegate = self
-        //let screenSize: CGRect = UIScreen.main.bounds
-        //for setting font size according to the screen size
         descriptionLabel.font = descriptionLabel.font.withSize(self.view.frame.height*relativeConstant)
         let screenSize: CGRect = UIScreen.main.bounds
         descriptionLabel.minimumScaleFactor = 0.5;
@@ -58,9 +56,6 @@ class ViewController: UIViewController {
         Animation.shared.circleAnim(detailView, duration: 0.5,completion: {
             DispatchQueue.main.async {
                 self.detailView.layer.sublayers!.remove(at: 0)
-                //self.detailView.backgroundColor = UIColor(red: 0.420, green: 0.578, blue: 0.945, alpha: 1.0)
-                //self.detailView.backgroundColor = UIColor(red: 0.710, green: 0.553, blue: 0.267, alpha: 1.0)
-                //self.detailView.backgroundColor = UIColor(red: 0.502, green: 0.514, blue: 1.000, alpha: 1.0)
                 self.detailView.backgroundColor = UIColor(red: 0.145, green: 0.588, blue: 0.745, alpha: 1.0)
                     }
         })
