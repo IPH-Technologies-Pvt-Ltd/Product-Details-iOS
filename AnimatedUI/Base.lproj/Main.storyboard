@@ -57,20 +57,14 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7h-VE-StP">
-                                <rect key="frame" x="25" y="605.33333333333337" width="343" height="238"/>
+                                <rect key="frame" x="25" y="578" width="343" height="207"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">"Lorem Ipsum is simply dummy text of the printing and typesetting industry," it has been the industry's standard dummy text ever since the 1500s. When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</string>
+                                        <string key="content">"Innovation is not about dreaming of tomorrow. It's about accelerating toward it," says Tinker Hatfield. "We're able to anticipate the needs of athletes because we know them better than anybody. Sometimes, we deliver a reality before others have even begun to imagine it."</string>
                                         <attributes>
-                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="10" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <real key="NSStrokeWidth" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -84,7 +78,7 @@
                                     <constraint firstAttribute="height" constant="47.329999999999998" id="GIV-xG-5tG"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="hollowButton"/>
+                                <buttonConfiguration key="configuration" style="plain" image="conCircle"/>
                                 <connections>
                                     <action selector="detailButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MQi-5W-QPa"/>
                                 </connections>
@@ -206,13 +200,13 @@
                                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ocG-e4-PCP">
                                                                 <rect key="frame" x="5" y="5" width="30" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <color key="backgroundColor" red="0.41960784313725491" green="0.51764705882352935" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" red="0.14509803921568626" green="0.58823529411764708" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                                             </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.41960784313725491" green="0.51764705882352935" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.14509803921568626" green="0.58823529411764708" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -334,7 +328,7 @@
                             <constraint firstItem="XcV-ed-fva" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vdt-kc-jhI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2MU-Ld-fBZ" secondAttribute="trailing" id="XkV-eg-qTn"/>
                             <constraint firstItem="L9h-tR-Vh2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-35" id="Zy1-yb-fyf"/>
-                            <constraint firstItem="S7h-VE-StP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.7" id="bwR-N0-zng"/>
+                            <constraint firstItem="S7h-VE-StP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.6" id="bwR-N0-zng"/>
                             <constraint firstItem="5vB-pC-tdX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cWO-K7-WHr"/>
                             <constraint firstItem="Pdg-Jv-9NQ" firstAttribute="centerY" secondItem="2MU-Ld-fBZ" secondAttribute="centerY" id="daB-cv-LAy"/>
                             <constraint firstItem="DxB-hC-hWF" firstAttribute="top" secondItem="2MU-Ld-fBZ" secondAttribute="bottom" constant="17.329999999999998" id="fEZ-QY-4hM"/>
@@ -363,6 +357,7 @@
                         <outlet property="cartButton" destination="O4O-ZF-GYq" id="Ti4-Lo-KmN"/>
                         <outlet property="closeButton" destination="XcV-ed-fva" id="cqk-Vi-6QT"/>
                         <outlet property="colorView" destination="iz7-tp-oYN" id="C1m-BJ-Dhg"/>
+                        <outlet property="descriptionLabel" destination="S7h-VE-StP" id="3Ad-9E-Shb"/>
                         <outlet property="detailButton" destination="L9h-tR-Vh2" id="1ns-tn-X0j"/>
                         <outlet property="detailView" destination="FXO-jg-3Yc" id="Njx-O6-YvN"/>
                         <outlet property="fifthColorView" destination="L07-1f-YN3" id="xl7-W4-mjM"/>
@@ -386,7 +381,7 @@
     </scenes>
     <resources>
         <image name="close" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="hollowButton" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="conCircle" width="42" height="42"/>
         <image name="layer" width="340" height="227"/>
         <image name="shoes-removebg-preview" width="275" height="183"/>
         <systemColor name="labelColor">

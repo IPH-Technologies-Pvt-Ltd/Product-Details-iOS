@@ -29,28 +29,46 @@ class ViewController: UIViewController {
     @IBOutlet weak var middleCircularView: UIView!
     @IBOutlet weak var innerCircularView: UIView!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     let animator = UIViewPropertyAnimator(duration: 1.0, curve: .linear)
     let size = ["6","7","8","9"]
     private let dashHeight: CGFloat = 1.0
     private let dashWidth: CGFloat = 99.0
     private let numberFont = UIFont.boldSystemFont(ofSize: 40)
+    let relativeConstant: CGFloat = 0.022
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         sizePickerView.dataSource = self
         sizePickerView.delegate = self
+        descriptionLabel.font = descriptionLabel.font.withSize(self.view.frame.height*relativeConstant)
         let screenSize: CGRect = UIScreen.main.bounds
+        descriptionLabel.minimumScaleFactor = 0.5;
+        descriptionLabel.adjustsFontSizeToFitWidth = true;
     }
     
     @IBAction func detailButtonAction(_ sender: UIButton) {
+        Animation.shared.identifier = 1
         detailView.isHidden = false
-        Animation.shared.circleAnim(detailView, duration: 0.5)
+        chnBgView()
+        Animation.shared.circleAnim(detailView, duration: 0.5,completion: {
+            DispatchQueue.main.async {
+                self.detailView.layer.sublayers!.remove(at: 0)
+                self.detailView.backgroundColor = UIColor(red: 0.145, green: 0.588, blue: 0.745, alpha: 1.0)
+                    }
+        })
     }
     
     @IBAction func addToCartAction(_ sender: UIButton) {
-        detailView.isHidden = true
+        Animation.shared.identifier = 0
+        Animation.shared.circleAnim(detailView, duration: 0.5,
+                                    completion: {
+        DispatchQueue.main.async {
+           self.detailView.isHidden = true
+            }
+        })
     }
     
     @IBAction func closeButtonAction(_ sender: UIButton) {
@@ -123,6 +141,21 @@ class ViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    func chnBgView() {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = detailView.bounds
+        gradientLayer.colors = [
+            UIColor(red: 0.592, green: 0.686, blue: 0.725, alpha: 1.0).cgColor,
+            UIColor(red: 0.824, green: 0.902, blue: 0.933, alpha: 1.0).cgColor,
+            UIColor(red: 0.490, green: 0.702, blue: 0.780, alpha: 1.0).cgColor,
+            UIColor(red: 0.976, green: 0.706, blue: 0.753, alpha: 1.0).cgColor
+        ]
+            detailView.layer.insertSublayer(gradientLayer, at: 0)
+        
+        
     }
   
     //MARK: Functions for changing the color of specific part of image.
@@ -209,18 +242,18 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
         switch sizeSelected{
             
         case "6":
-            Animation.shared.animateImageSize(x: 1.05, y: 1.05, image: layerImageView)
-            Animation.shared.animateImageSize(x: 1.05, y: 1.05, image: productImageView)
+            Animation.shared.animateImageSize(xFront: 1.05, yFront: 1.05, image: layerImageView, xBack: 1.03, yBack: 1.03)
+            Animation.shared.animateImageSize(xFront: 1.05, yFront: 1.05, image: productImageView, xBack: 1.03, yBack: 1.03)
            
         case "7":
-            Animation.shared.animateImageSize(x: 1.08, y: 1.08, image: layerImageView)
-            Animation.shared.animateImageSize(x: 1.08, y: 1.08, image: productImageView)
+            Animation.shared.animateImageSize(xFront: 1.08, yFront: 1.08, image: layerImageView, xBack: 1.06, yBack: 1.06)
+            Animation.shared.animateImageSize(xFront: 1.08, yFront: 1.08, image: productImageView, xBack: 1.06, yBack: 1.06)
         case "8":
-            Animation.shared.animateImageSize(x: 1.11, y: 1.11, image: layerImageView)
-            Animation.shared.animateImageSize(x: 1.11, y: 1.11, image: productImageView)
+            Animation.shared.animateImageSize(xFront: 1.11, yFront: 1.11, image: layerImageView, xBack: 1.08, yBack: 1.08)
+            Animation.shared.animateImageSize(xFront: 1.11, yFront: 1.11, image: productImageView, xBack: 1.08, yBack: 1.08)
         case "9":
-            Animation.shared.animateImageSize(x: 1.14, y: 1.14, image: layerImageView)
-            Animation.shared.animateImageSize(x: 1.14, y: 1.14, image: productImageView)
+            Animation.shared.animateImageSize(xFront: 1.14, yFront: 1.14, image: layerImageView, xBack: 1.12, yBack: 1.12)
+            Animation.shared.animateImageSize(xFront: 1.14, yFront: 1.14,  image: productImageView, xBack: 1.12, yBack: 1.12)
         default:
             print("invalid")
         }
