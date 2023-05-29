@@ -2,11 +2,12 @@
 //  Animation.swift
 //  ProductPreviewer
 //
-//  Created by iPHTech 15 on 09/05/23.
+//  Created by IPH Technologies Pvt. Ltd. on 09/05/23.
 //
 
 import Foundation
 import UIKit
+
 class Animation{
     static let shared = Animation()
     var identifier: Int?

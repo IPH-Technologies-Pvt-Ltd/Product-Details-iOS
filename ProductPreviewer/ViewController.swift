@@ -2,11 +2,10 @@
 //  ViewController.swift
 //  ProductPreviewer
 //
-//  Created by iPHTech 15 on 28/04/23.
+//  Created by IPH Technologies Pvt. Ltd. on 28/04/23.
 //
 
 import UIKit
-
 class ViewController: UIViewController {
   
     @IBOutlet weak var detailButton: UIButton!
@@ -26,19 +25,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var innerCircularView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    let animator = UIViewPropertyAnimator(duration: 1.0, curve: .linear)
-    let size = ["6","7","8","9"]
-    private let dashHeight: CGFloat = 1.0
-    private let dashWidth: CGFloat = 99.0
-    private let numberFont = UIFont.boldSystemFont(ofSize: 40)
-    let relativeConstant: CGFloat = 0.022
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         sizePickerView.dataSource = self
         sizePickerView.delegate = self
-        descriptionLabel.font = descriptionLabel.font.withSize(self.view.frame.height*relativeConstant)
+        descriptionLabel.font = descriptionLabel.font.withSize(self.view.frame.height*Constants.shared.relativeConstant)
         descriptionLabel.minimumScaleFactor = 0.5;
         descriptionLabel.adjustsFontSizeToFitWidth = true;
     }
@@ -50,7 +42,7 @@ class ViewController: UIViewController {
         Animation.shared.circleAnim(detailView, duration: 0.5,completion: {
             DispatchQueue.main.async {
                 self.detailView.layer.sublayers!.remove(at: 0)
-                self.detailView.backgroundColor = UIColor(red: 0.145, green: 0.588, blue: 0.745, alpha: 1.0)
+                self.detailView.backgroundColor = UIColor.viewBackgroungColor()
                     }
         })
     }
@@ -115,10 +107,10 @@ class ViewController: UIViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = detailView.bounds
         gradientLayer.colors = [
-            UIColor(red: 0.592, green: 0.686, blue: 0.725, alpha: 1.0).cgColor,
-            UIColor(red: 0.824, green: 0.902, blue: 0.933, alpha: 1.0).cgColor,
-            UIColor(red: 0.490, green: 0.702, blue: 0.780, alpha: 1.0).cgColor,
-            UIColor(red: 0.976, green: 0.706, blue: 0.753, alpha: 1.0).cgColor]
+            UIColor.viewGradientColorOne().cgColor,
+            UIColor.viewGradientColorTwo().cgColor,
+            UIColor.viewGradientColorThree().cgColor,
+            UIColor.viewGradientColorFour().cgColor]
             detailView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
@@ -173,7 +165,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return size.count
+        return Constants.shared.size.count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -182,29 +174,29 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 210, height: 30))
-        let dashView = UIView(frame: CGRect(x: 0, y: (containerView.frame.height - dashHeight) / 2, width: dashWidth, height: dashHeight))
+        let dashView = UIView(frame: CGRect(x: 0, y: (containerView.frame.height - Constants.shared.dashHeight) / 2, width: Constants.shared.dashWidth, height: Constants.shared.dashHeight))
         dashView.backgroundColor = UIColor.white
         containerView.addSubview(dashView)
-        let height =  (containerView.frame.height - dashHeight) / 2
-        if row != (size.count - 1) {
+        let height =  (containerView.frame.height - Constants.shared.dashHeight) / 2
+        if row != (Constants.shared.size.count - 1) {
             for i in 1...5 {
-                let dashView = UIView(frame: CGRect(x: 0, y: (CGFloat(10 * i) + height), width: dashWidth - 20, height: dashHeight))
+                let dashView = UIView(frame: CGRect(x: 0, y: (CGFloat(10 * i) + height), width: Constants.shared.dashWidth - 20, height: Constants.shared.dashHeight))
                 dashView.backgroundColor = UIColor.white
                 containerView.addSubview(dashView)
             }
         }
-        let numberLabel = UILabel(frame: CGRect(x: dashWidth + 10, y: 0, width: 70, height: containerView.frame.height))
+        let numberLabel = UILabel(frame: CGRect(x: Constants.shared.dashWidth + 10, y: 0, width: 70, height: containerView.frame.height))
         numberLabel.textAlignment = .center
         numberLabel.textColor = .white
-        numberLabel.font = numberFont
-        numberLabel.text = "\(size[row])"
+        numberLabel.font = Constants.shared.numberFont
+        numberLabel.text = "\(Constants.shared.size[row])"
         containerView.addSubview(numberLabel)
         return containerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(size[row])
-        let sizeSelected = size[row]
+        print(Constants.shared.size[row])
+        let sizeSelected = Constants.shared.size[row]
         switch sizeSelected{
         case "6":
             Animation.shared.animateImageSize(xFront: 1.05, yFront: 1.05, image: layerImageView, xBack: 1.03, yBack: 1.03)
@@ -220,40 +212,6 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             Animation.shared.animateImageSize(xFront: 1.14, yFront: 1.14,  image: productImageView, xBack: 1.12, yBack: 1.12)
         default:
             print("invalid")
-        }
-    }
-}
-//MARK: gradient
-extension UIImage {
-    func maskWithGradientColor(color: UIColor, value1: CGFloat, value2: CGFloat, value3: CGFloat, value4: CGFloat, value5: CGFloat, value6: CGFloat, alphaValueTop: CGFloat, alphaValueBottom: CGFloat) -> UIImage? {
-        let maskImage = self.cgImage
-        let width = self.size.width
-        let height = self.size.height
-        let bounds = CGRect(x: 0, y: 0, width: width, height: height)
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-        let bitmapContext = CGContext(data: nil,
-                                      width: Int(width),
-                                      height: Int(height),
-                                      bitsPerComponent: 8,
-                                      bytesPerRow: 0,
-                                      space: colorSpace,
-                                      bitmapInfo: bitmapInfo.rawValue)
-        let locations:[CGFloat] = [0.0, 1.0]
-        let bottom = UIColor(red: value1, green: value2, blue: value3, alpha: 1).cgColor
-        let top = UIColor(red: value4, green: value5, blue: value6, alpha: 0).cgColor
-        let colors = [bottom, top] as CFArray
-        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: locations)
-        let startPoint = CGPoint(x: width/2, y: 0)
-        let endPoint = CGPoint(x: width/2, y: height)
-        bitmapContext!.clip(to: bounds, mask: maskImage!)
-        bitmapContext!.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: UInt32(0)))
-        if let cImage = bitmapContext!.makeImage() {
-            let coloredImage = UIImage(cgImage: cImage)
-            return coloredImage
-        }
-        else  {
-            return nil
         }
     }
 }
