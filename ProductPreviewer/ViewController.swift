@@ -142,7 +142,7 @@ class ViewController: UIViewController {
     }
     
     @objc func changeColorToWhite(_ sender:UITapGestureRecognizer) {
-        Animation.shared.changeWhite(imageView: layerImageView)
+        Animation.shared.maskToWhite(imageView: layerImageView)
     }
     
     @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -154,7 +154,8 @@ class ViewController: UIViewController {
     }
     //target functions
     @objc func heldDown() {
-        cartButton.backgroundColor = UIColor(red: 107, green: 132, blue: 241, alpha: 0)
+        //
+        cartButton.backgroundColor = UIColor.cartButtonHelddownColor()
         cartButton.tintColor = .white
     }
 }

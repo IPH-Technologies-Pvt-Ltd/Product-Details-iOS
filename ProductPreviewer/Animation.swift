@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-
 class Animation{
     static let shared = Animation()
     var identifier: Int?
@@ -62,7 +61,7 @@ class Animation{
                           completion: nil)
     }
     
-    func changeWhite(imageView: UIImageView){
+    func maskToWhite(imageView: UIImageView){
         UIView.transition(with: imageView,
                           duration: 1.0,
                           options: .transitionCrossDissolve,
@@ -70,7 +69,7 @@ class Animation{
             let originalImage = imageView.image
        let tintedImage = originalImage?.withRenderingMode(.alwaysTemplate)
             imageView.image = tintedImage
-            imageView.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5) },
+            imageView.tintColor = UIColor.maskColor() },
                           completion: nil)
     }
 }

@@ -43,6 +43,9 @@ extension UIColor
     class func cartButtonHelddownColor() -> UIColor{
         return UIColor(red: 107, green: 132, blue: 241, alpha: 0)
     }
+    class func maskColor() -> UIColor{
+        return UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+    }
 }
 //MARK: gradient
 extension UIImage {
