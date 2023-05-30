@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimatedUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProductPreviewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -280,7 +280,7 @@
                                     <constraint firstItem="fcI-nv-xma" firstAttribute="centerX" secondItem="FXO-jg-3Yc" secondAttribute="centerX" constant="47.5" id="tm4-UH-GKr"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoes-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="Pdg-Jv-9NQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoes" translatesAutoresizingMaskIntoConstraints="NO" id="Pdg-Jv-9NQ">
                                 <rect key="frame" x="43" y="49" width="307" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -352,26 +352,22 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addToCartButton" destination="O4O-ZF-GYq" id="N68-IR-e5M"/>
-                        <outlet property="brandNameLabel" destination="6kA-AZ-2Eb" id="wgi-v4-H0e"/>
+                        <outlet property="blackColorView" destination="fcI-nv-xma" id="UFe-3h-Mqj"/>
+                        <outlet property="blueColorView" destination="NKE-RE-3ax" id="QPe-VT-zVq"/>
                         <outlet property="cartButton" destination="O4O-ZF-GYq" id="Ti4-Lo-KmN"/>
                         <outlet property="closeButton" destination="XcV-ed-fva" id="cqk-Vi-6QT"/>
-                        <outlet property="colorView" destination="iz7-tp-oYN" id="C1m-BJ-Dhg"/>
                         <outlet property="descriptionLabel" destination="S7h-VE-StP" id="3Ad-9E-Shb"/>
                         <outlet property="detailButton" destination="L9h-tR-Vh2" id="1ns-tn-X0j"/>
                         <outlet property="detailView" destination="FXO-jg-3Yc" id="Njx-O6-YvN"/>
-                        <outlet property="fifthColorView" destination="L07-1f-YN3" id="xl7-W4-mjM"/>
-                        <outlet property="fourthColorView" destination="fcI-nv-xma" id="rDT-cP-ZRy"/>
-                        <outlet property="imageBackgroundView" destination="2MU-Ld-fBZ" id="ylm-In-dOQ"/>
+                        <outlet property="greenColorView" destination="F42-YG-Bar" id="gDW-Kh-CLo"/>
                         <outlet property="innerCircularView" destination="ocG-e4-PCP" id="Uzc-WA-raq"/>
                         <outlet property="layerImageView" destination="Izs-Sg-qHI" id="dba-M2-Rw0"/>
                         <outlet property="middleCircularView" destination="1wX-01-vyf" id="Mhr-pG-6LL"/>
                         <outlet property="outerCircularView" destination="bKb-SK-sCs" id="ccN-vM-HRL"/>
                         <outlet property="productImageView" destination="Pdg-Jv-9NQ" id="8go-Dk-NXS"/>
-                        <outlet property="secondColorView" destination="NKE-RE-3ax" id="zVc-P3-4Vc"/>
-                        <outlet property="shoeNameLabel" destination="V8v-9M-2v7" id="rPP-LU-E9j"/>
+                        <outlet property="redColorView" destination="iz7-tp-oYN" id="AO1-fd-h2t"/>
                         <outlet property="sizePickerView" destination="gYq-sF-218" id="Y6v-1F-1O4"/>
-                        <outlet property="thirdColorView" destination="F42-YG-Bar" id="Mlk-mP-lIj"/>
+                        <outlet property="whiteColorView" destination="L07-1f-YN3" id="wC2-FQ-Xjj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -381,9 +377,9 @@
     </scenes>
     <resources>
         <image name="close" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="conCircle" width="42" height="42"/>
+        <image name="conCircle" width="42.666667938232422" height="42.666667938232422"/>
         <image name="layer" width="340" height="227"/>
-        <image name="shoes-removebg-preview" width="275" height="183"/>
+        <image name="shoes" width="275" height="183"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
