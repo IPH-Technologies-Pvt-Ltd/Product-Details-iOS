@@ -40,5 +40,5 @@ This project was inspired by the Product Details Page in the Apple App Store.
 ## Screenshot
 <img src="https://github.com/IPH-Technologies-Pvt-Ltd/Product-Previewer-iOS/assets/94104772/3671442d-4359-4fbf-8cec-d8530cfe1585" 
      width="350" 
-     height="400"/>
+     height="700"/>
 
