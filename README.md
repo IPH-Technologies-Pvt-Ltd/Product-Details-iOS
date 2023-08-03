@@ -1,4 +1,5 @@
 # Product Previwer Page in Swift
+[![Swift](https://img.shields.io/badge/swift-%2320232a.svg?style=for-the-badge&logo=swift&logoColor=%23F05138)](https://swift.org/)
 
 This is a basic Product Previwer Page implemented in Swift for iOS applications. This page displays the details of a product such as its name, description, price, and an image. 
 
